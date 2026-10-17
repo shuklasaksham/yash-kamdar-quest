@@ -431,7 +431,12 @@ button { cursor: pointer; }
   .boss { top: 48px; width: 52%; }
   .boss__name { font-size: 8px; }
   .hint { top: 82px; font-size: 8px; }
-  .banner { top: 30%; }
+  .banner { top: 36%; }
+  .dialogue { gap: 10px; padding: 7px 10px; width: min(calc(var(--stage-w) - 20px), 640px); bottom: calc((100vh - var(--stage-h)) / 2 + 8px); }
+  .dialogue__portrait { width: 40px; height: 40px; }
+  .dialogue__speaker { font-size: 8px; margin-bottom: 3px; }
+  .dialogue__text { font-size: 13px; min-height: 2.4em; }
+  .dialogue__action { font-size: 9px; padding: 7px 10px; }
   .credits { padding: 2% 2% 2.5%; }
   .credits__end { font-size: 22px; }
   .credits__win { padding: 8px 10px; max-width: 52%; }
