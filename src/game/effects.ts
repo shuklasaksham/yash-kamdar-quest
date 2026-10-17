@@ -39,6 +39,14 @@ export class Effects {
     }
   }
 
+  /** Little puffs kicked up by feet; `dir` is the direction of travel (dust flies the other way). */
+  dust(x: number, y: number, dir = 0, n = 4) {
+    for (let i = 0; i < n; i++) {
+      this.parts.push({ x: x + (Math.random() - 0.5) * 8, y: y - 1, vx: -dir * (10 + Math.random() * 35) + (Math.random() - 0.5) * 30, vy: -6 - Math.random() * 22,
+        life: 0, max: 0.3 + Math.random() * 0.25, g: -15, drag: 3.5, color: i % 2 ? "#f2e6c9" : "#c9b48f", size: Math.random() < 0.4 ? 2 : 1 });
+    }
+  }
+
   hearts(x: number, y: number, n = 6) {
     for (let i = 0; i < n; i++) {
       this.parts.push({ x: x + (Math.random() - 0.5) * 30, y, vx: (Math.random() - 0.5) * 12, vy: -14 - Math.random() * 12,

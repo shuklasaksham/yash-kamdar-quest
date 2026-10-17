@@ -87,6 +87,17 @@ class Sfx {
   teleport() { this.tone(200, 0.5, "sine", 1800, 0, 0.6); this.tone(300, 0.5, "square", 2400, 0.05, 0.25); }
   heart() { [784, 988, 1175, 1568].forEach((f, i) => this.tone(f, 0.22, "triangle", undefined, i * 0.15, 0.6)); }
   blip() { this.tone(1400, 0.02, "square", undefined, 0, 0.15); }
+  jump() { this.tone(330, 0.14, "square", 880, 0, 0.35); }
+  land() { this.noise(0.06, 0.25, 0, 900); }
+  skid() { this.noise(0.12, 0.2, 0, 3000); }
+  swing() { this.noise(0.08, 0.3, 0, 5000); this.tone(700, 0.07, "triangle", 300, 0, 0.25); }
+  bump() { this.tone(180, 0.08, "square", 120, 0, 0.5); }
+  hurt() { this.tone(520, 0.22, "square", 130, 0, 0.55); this.noise(0.14, 0.5, 0, 2000); }
+  rumble() { this.noise(0.5, 0.45, 0, 300); this.tone(60, 0.5, "triangle", 40, 0, 0.6); }
+  quake() { this.noise(0.45, 0.9, 0, 500); this.tone(90, 0.4, "sawtooth", 35, 0, 0.5); }
+  charge() { this.tone(400, 0.35, "sawtooth", 1400, 0, 0.25); }
+  wave() { this.tone(900, 0.25, "sawtooth", 200, 0, 0.3); this.noise(0.2, 0.3, 0, 7000); }
+  ko() { [392, 330, 262, 196].forEach((f, i) => this.tone(f, 0.18, "square", undefined, i * 0.14, 0.5)); }
 }
 
 export const sfx = new Sfx();

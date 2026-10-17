@@ -2,26 +2,32 @@
 
 The portfolio of **Yash Kamdar**, 3D Environment Artist, played as a 16-bit side-scrolling quest.
 
-Walk across a pixel-art island and one-shot three guardians. Each one guards part of the portfolio:
+Run and jump across a pixel-art island, Mario style: hit ?-blocks, grab coins, and fight three guardians that each hold part of the portfolio.
 
-| Guardian | Unlocks |
-| --- | --- |
-| Slime King | **About**: story, skills, tools |
-| Stone Golem | **Work**: experience and training |
-| Shadow Knight | **Portfolio**: renders, Swamp Barn shots, sketches |
+| Guardian | Fight | Unlocks |
+| --- | --- | --- |
+| Slime King | 3 hits, doesn't fight back (a warm-up) | **About**: story, skills, tools |
+| Stone Golem | 5 hits; slams the ground and sends quakes you jump over | **Work**: experience and training |
+| Shadow Knight | 6 hits; backflips away, throws sword waves, dashes across the arena | **Portfolio**: renders, Swamp Barn shots, sketches |
+
+Yash has five hearts. If you're knocked out, you respawn at the arena entrance and the guardian keeps the damage you dealt, so nobody gets stuck. Hit guardians with your sword, or land on their heads.
+
+Each section opens on its own once you've earned it. To read another section, go and beat its guardian. Choosing a section from the title or the pause menu teleports the hero straight to that guardian. Sections you've already won can be reopened from the quest log or the pause menu.
 
 The journey ends on a sunset hill where Yash meets his love, followed by the contact links.
 
-You don't have to play to read. Any section can be opened at any time from the quest log, the pause menu or the title's **Quick View**. Inside the panel, switch sections with ← →, swipe, or Prev / Next. Choosing **Portfolio** (or any section) from the title or the pause menu teleports the hero straight to that guardian.
+Visitors who just want to read can pick **Quick View** on the title screen.
 
 ## Controls
 
 | Action | Keyboard | Touch |
 | --- | --- | --- |
-| Walk | ← → or A D | ◀ ▶ |
-| Attack / confirm | E, Enter, Space | A |
-| Back / close | Backspace, B, Esc | B |
-| Pause menu | Esc or P | MENU |
+| Move | ← → or A D | ◀ ▶ |
+| Run | Shift, or keep holding a direction | hold ◀ ▶ |
+| Jump (hold for higher) | Space, ↑, W, Z | A |
+| Attack | J, X, E | B |
+| Confirm dialogue | Enter | tap the button |
+| Pause menu / close | Esc or P | MENU |
 | Sound | M | ♪ |
 
 Motion respects `prefers-reduced-motion`.
@@ -40,7 +46,7 @@ Built with Vite and TypeScript. There's no framework and no runtime dependencies
 ```
 src/
   engine/   stage scaling, input, assets, chiptune sfx
-  game/     world layout, guardians, effects, the game loop
+  game/     hero controller, guardian AI, world layout, effects, the game loop
   ui/       dialogue, HUD, menus, section panel content
   content.ts  every word and link from Yash's resume
 public/

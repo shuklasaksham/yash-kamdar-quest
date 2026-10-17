@@ -12,7 +12,7 @@ async function boot() {
   const input = new Input();
 
   // on-screen controls (shown on touch / portrait screens)
-  const pad: [string, Action][] = [["#pad-left", "left"], ["#pad-right", "right"], ["#pad-a", "act"], ["#pad-b", "back"], ["#pad-menu", "menu"], ["#btn-menu", "menu"]];
+  const pad: [string, Action][] = [["#pad-left", "left"], ["#pad-right", "right"], ["#pad-a", "jump"], ["#pad-b", "attack"], ["#pad-menu", "menu"], ["#btn-menu", "menu"]];
   for (const [sel, a] of pad) input.bindButton(document.querySelector<HTMLElement>(sel)!, a);
 
   ui.setMuted(sfx.muted);
@@ -21,9 +21,9 @@ async function boot() {
 
   const images = await loadImages((d, t) => ui.loading(d, t));
   const game = new Game(stage, images, input, ui);
+  if (import.meta.env.DEV) Object.assign(window, { game }); // inspect state from the console while developing
   document.querySelector("#credits-again")!.addEventListener("click", () => void game.playAgain());
   document.querySelector("#credits-explore")!.addEventListener("click", () => void game.keepExploring());
-  document.querySelector("#credits-sections")!.addEventListener("click", () => ui.openPanel("portfolio"));
   await ui.hideLoading();
   game.start();
 }

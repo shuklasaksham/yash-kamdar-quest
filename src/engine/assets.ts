@@ -3,6 +3,7 @@
 const ART = ["layer-sky", "layer-far", "layer-mid", "layer-ground", "layer-fore", "title", "ending"] as const;
 const SPRITES = [
   "hero-idle", "hero-idle2", "hero-walk1", "hero-walk2", "hero-windup", "hero-slash", "hero-victory", "hero-teleport",
+  "hero-run1", "hero-run2", "hero-jump", "hero-fall", "hero-skid", "hero-hurt",
   "slime", "slime-squash", "slime-hurt", "golem", "golem-hurt", "knight", "knight-hurt", "love", "love-wave",
   "fx-slash", "fx-burst", "fx-poof", "fx-beam", "fx-heart", "fx-heart-big", "chest", "chest-open",
 ] as const;

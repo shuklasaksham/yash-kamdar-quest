@@ -20,7 +20,7 @@
             <img class="pixel" src="./sprites/portrait-hero.png" alt="" width="40" height="40" />
             <div>
               <p class="hud__name">YASH <span>LV 99</span></p>
-              <p class="hud__hearts" aria-label="Five hearts">♥♥♥♥♥</p>
+              <p class="hud__hearts"><span id="hud-hearts" class="hearts" aria-label="5 of 5 hearts">♥♥♥♥♥</span><span class="hud__coins"><i aria-hidden="true"></i><span id="hud-coins">×00</span></span></p>
               <p class="hud__class">Class: 3D Environment Artist</p>
             </div>
           </div>
@@ -33,6 +33,11 @@
           <button id="btn-mute" class="chip-btn" aria-pressed="false" title="Sound (M)">♪ ON</button>
           <button id="btn-menu" class="chip-btn" title="Menu (Esc)">MENU</button>
         </div>
+        <div id="boss" class="boss" aria-live="polite">
+          <p id="boss-name" class="boss__name"></p>
+          <div class="boss__track"><i id="boss-lag" class="boss__lag"></i><i id="boss-fill" class="boss__fill"></i></div>
+        </div>
+        <p id="hint" class="hint" aria-live="polite"></p>
         <div id="banner" class="banner" aria-live="polite"></div>
         <div id="fxtext" class="fxtext" aria-hidden="true"></div>
 
@@ -55,7 +60,6 @@
               <li><a class="btn btn--blue" href="tel:+918602096668"><kbd>4</kbd>Call</a></li>
             </ul>
             <div class="credits__row">
-              <button id="credits-sections" class="btn btn--blue btn--sm">View sections</button>
               <button id="credits-explore" class="btn btn--blue btn--sm">Keep exploring</button>
               <button id="credits-again" class="btn btn--blue btn--sm">Play again</button>
             </div>
@@ -86,8 +90,8 @@
         </div>
         <button id="pad-menu" class="pad pad--menu" aria-label="Menu">MENU</button>
         <div class="controls__ab">
-          <button id="pad-b" class="pad pad--b" aria-label="Back">B</button>
-          <button id="pad-a" class="pad pad--a" aria-label="Action">A</button>
+          <button id="pad-b" class="pad pad--b" aria-label="Attack">B</button>
+          <button id="pad-a" class="pad pad--a" aria-label="Jump">A</button>
         </div>
       </nav>
 
@@ -100,13 +104,10 @@
             </div>
             <button id="panel-close" class="btn btn--blue btn--sm" aria-label="Close"><kbd>Esc</kbd>Close</button>
           </header>
-          <div id="panel-tabs" class="tabs" role="tablist" aria-label="Sections"></div>
-          <div id="panel-status" class="panel__status"></div>
-          <div id="panel-body" class="panel__body" role="tabpanel" tabindex="0"></div>
+          <div id="panel-body" class="panel__body" tabindex="0"></div>
           <footer class="panel__foot">
-            <button id="panel-prev" class="btn btn--blue btn--sm"><kbd>◀</kbd>Prev</button>
-            <span class="panel__hint">← → or swipe to switch sections</span>
-            <button id="panel-next" class="btn btn--blue btn--sm">Next<kbd>▶</kbd></button>
+            <span class="panel__hint">Other sections are guarded — beat their guardians to read them</span>
+            <button id="panel-done" class="btn btn--gold btn--sm">Continue<kbd>▶</kbd></button>
           </footer>
         </article>
       </div>
