@@ -1,0 +1,102 @@
+{
+ "hero-idle": [
+  84,
+  69
+ ],
+ "hero-idle2": [
+  84,
+  69
+ ],
+ "hero-walk1": [
+  84,
+  69
+ ],
+ "hero-walk2": [
+  84,
+  69
+ ],
+ "hero-windup": [
+  84,
+  69
+ ],
+ "hero-slash": [
+  84,
+  69
+ ],
+ "hero-victory": [
+  84,
+  69
+ ],
+ "hero-teleport": [
+  84,
+  69
+ ],
+ "slime": [
+  72,
+  56
+ ],
+ "slime-squash": [
+  72,
+  56
+ ],
+ "slime-hurt": [
+  72,
+  56
+ ],
+ "golem": [
+  76,
+  76
+ ],
+ "golem-hurt": [
+  76,
+  76
+ ],
+ "knight": [
+  72,
+  80
+ ],
+ "knight-hurt": [
+  72,
+  80
+ ],
+ "love": [
+  60,
+  69
+ ],
+ "love-wave": [
+  60,
+  69
+ ],
+ "fx-slash": [
+  60,
+  60
+ ],
+ "fx-burst": [
+  48,
+  48
+ ],
+ "fx-poof": [
+  64,
+  48
+ ],
+ "fx-beam": [
+  36,
+  120
+ ],
+ "fx-heart": [
+  11,
+  10
+ ],
+ "fx-heart-big": [
+  20,
+  18
+ ],
+ "chest": [
+  26,
+  24
+ ],
+ "chest-open": [
+  26,
+  24
+ ]
+}

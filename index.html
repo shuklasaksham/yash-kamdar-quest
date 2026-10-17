@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" class="in-title">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0d0b14" />
+    <title>Yash Kamdar — A 3D Artist's Quest</title>
+    <meta name="description" content="The portfolio of Yash Kamdar, 3D Environment Artist — played as a 16-bit action quest." />
+    <link rel="icon" href="./sprites/portrait-hero.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app" class="app">
+      <main id="stage" class="stage">
+        <!-- canvas is inserted here -->
+        <section id="hud" class="hud" aria-label="Status">
+          <div class="win hud__player">
+            <img class="pixel" src="./sprites/portrait-hero.png" alt="" width="40" height="40" />
+            <div>
+              <p class="hud__name">YASH <span>LV 99</span></p>
+              <p class="hud__hearts" aria-label="Five hearts">♥♥♥♥♥</p>
+              <p class="hud__class">Class: 3D Environment Artist</p>
+            </div>
+          </div>
+          <div class="win hud__quest">
+            <p class="win__label">Quest</p>
+            <ol id="hud-quest"></ol>
+          </div>
+        </section>
+        <div id="hud-tools" class="hud-tools">
+          <button id="btn-mute" class="chip-btn" aria-pressed="false" title="Sound (M)">♪ ON</button>
+          <button id="btn-menu" class="chip-btn" title="Menu (Esc)">MENU</button>
+        </div>
+        <div id="banner" class="banner" aria-live="polite"></div>
+        <div id="fxtext" class="fxtext" aria-hidden="true"></div>
+
+        <section id="title" class="title" hidden>
+          <h1 class="title__logo">YASH KAMDAR</h1>
+          <p class="title__sub">~ A 3D Artist's Quest ~</p>
+          <nav class="win title__menu" aria-label="Main menu"><ul id="title-list" class="menu-list"></ul></nav>
+          <p class="title__hint"><span class="hint-keys">↑ ↓ choose · Enter select</span><span class="hint-touch">Tap to choose</span></p>
+        </section>
+
+        <section id="credits" class="credits" hidden aria-label="The end">
+          <h2 class="credits__end">THE END</h2>
+          <div class="win credits__win">
+            <p class="win__label">Thanks for playing</p>
+            <p class="credits__name">Yash Kamdar — 3D Environment Artist</p>
+            <ul class="contact">
+              <li><a class="btn btn--gold" href="mailto:yashwork1303@gmail.com"><kbd>1</kbd>Email</a></li>
+              <li><a class="btn btn--blue" href="https://www.linkedin.com/in/yash-kamdar-326613184/" target="_blank" rel="noopener"><kbd>2</kbd>LinkedIn</a></li>
+              <li><a class="btn btn--blue" href="https://www.artstation.com/yaaaaashk" target="_blank" rel="noopener"><kbd>3</kbd>ArtStation</a></li>
+              <li><a class="btn btn--blue" href="tel:+918602096668"><kbd>4</kbd>Call</a></li>
+            </ul>
+            <div class="credits__row">
+              <button id="credits-sections" class="btn btn--blue btn--sm">View sections</button>
+              <button id="credits-explore" class="btn btn--blue btn--sm">Keep exploring</button>
+              <button id="credits-again" class="btn btn--blue btn--sm">Play again</button>
+            </div>
+          </div>
+        </section>
+
+        <div id="flash" class="flash"></div>
+        <div id="fade" class="fade is-on"></div>
+        <div id="loading" class="loading">
+          <p class="loading__label">LOADING THE ISLAND…</p>
+          <div class="loading__track"><div id="loading-bar" class="loading__bar"></div></div>
+        </div>
+      </main>
+
+      <section id="dialogue" class="win dialogue" aria-live="polite" aria-hidden="true">
+        <img id="dialogue-portrait" class="pixel dialogue__portrait" src="./sprites/portrait-hero.png" alt="" width="40" height="40" />
+        <div class="dialogue__body">
+          <p id="dialogue-speaker" class="dialogue__speaker">YASH</p>
+          <p id="dialogue-text" class="dialogue__text"></p>
+        </div>
+        <button id="dialogue-action" class="btn btn--gold dialogue__action" hidden></button>
+      </section>
+
+      <nav id="controls" class="controls" aria-label="Touch controls">
+        <div class="controls__dpad">
+          <button id="pad-left" class="pad pad--dir" aria-label="Walk left">◀</button>
+          <button id="pad-right" class="pad pad--dir" aria-label="Walk right">▶</button>
+        </div>
+        <button id="pad-menu" class="pad pad--menu" aria-label="Menu">MENU</button>
+        <div class="controls__ab">
+          <button id="pad-b" class="pad pad--b" aria-label="Back">B</button>
+          <button id="pad-a" class="pad pad--a" aria-label="Action">A</button>
+        </div>
+      </nav>
+
+      <div id="panel" class="modal" role="dialog" aria-modal="true" aria-labelledby="panel-title" hidden>
+        <article class="win panel">
+          <header class="panel__head">
+            <div>
+              <h2 id="panel-title" class="panel__title"></h2>
+              <p id="panel-sub" class="panel__sub"></p>
+            </div>
+            <button id="panel-close" class="btn btn--blue btn--sm" aria-label="Close"><kbd>Esc</kbd>Close</button>
+          </header>
+          <div id="panel-tabs" class="tabs" role="tablist" aria-label="Sections"></div>
+          <div id="panel-status" class="panel__status"></div>
+          <div id="panel-body" class="panel__body" role="tabpanel" tabindex="0"></div>
+          <footer class="panel__foot">
+            <button id="panel-prev" class="btn btn--blue btn--sm"><kbd>◀</kbd>Prev</button>
+            <span class="panel__hint">← → or swipe to switch sections</span>
+            <button id="panel-next" class="btn btn--blue btn--sm">Next<kbd>▶</kbd></button>
+          </footer>
+        </article>
+      </div>
+
+      <div id="menu" class="modal" role="dialog" aria-modal="true" aria-label="Paused" hidden>
+        <nav class="win pause">
+          <p class="win__label">Paused</p>
+          <ul id="menu-list" class="menu-list"></ul>
+        </nav>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
